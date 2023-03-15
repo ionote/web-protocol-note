@@ -9,8 +9,8 @@
 
 ## 目录
 
-- [访问控制](docs/auth.md)
-- [用户](docs/auth.md)
+- [MongoDB 访问控制](docs/auth.md)
+- [MongoDB 用户](docs/auth.md)
 
 ## 学习资料
 
