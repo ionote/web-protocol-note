@@ -9,8 +9,9 @@
 
 ## 目录
 
+- [MongoDB 安装](docs/install.md)
 - [MongoDB 访问控制](docs/auth.md)
-- [MongoDB 用户](docs/auth.md)
+- [MongoDB 用户管理方法](docs/user.md)
 
 ## 学习资料
 
