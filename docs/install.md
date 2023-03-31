@@ -1,4 +1,4 @@
-# 安装和卸载 MongoDB
+# MongoDB 安装和卸载
 
 ## Centos 安装 MongoDB
 
@@ -50,7 +50,7 @@ sudo chkconfig mongod on
 mongosh
 ```
 
-> 默认情况下，MongoDB 启动时 bindIp 设置为 127.0.0.1，绑定到本地主机网络接口。这意味着mongod只能接受来自运行在同一台机器上的客户端的连接。远程客户端将无法连接到mongod，除非将此值设置为有效的网络接口。
+> 默认情况下，MongoDB 启动时 bindIp 设置为 127.0.0.1，绑定到本地主机网络接口。这意味着 mongod 只能接受来自运行在同一台机器上的客户端的连接。远程客户端将无法连接到 mongod，除非将此值设置为有效的网络接口。
 
 - [官方文档](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-red-hat/)
 
@@ -73,4 +73,24 @@ sudo yum erase $(rpm -qa | grep mongodb-org)
 ```
 sudo rm -r /var/log/mongodb
 sudo rm -r /var/lib/mongo
+```
+
+## 常见问题
+
+### 启动报错
+
+```
+mongodb.service - High-performance, schema-free document-oriented database
+   Loaded: loaded (/etc/systemd/system/mongodb.service; disabled; vendor preset: enabled)
+   Active: failed (Result: exit-code) since Sat 2016-09-10 14:02:22 CEST; 14s ago
+     Docs: https://docs.mongodb.org/manual
+  Process: 8724 ExecStart=/usr/bin/mongod --quiet --config /etc/mongod.conf (code=exited, status=14)
+ Main PID: 8724 (code=exited, status=14)
+```
+
+解决方法：删除 .sock 文件，重新启动。
+
+```
+sudo rm -rf /tmp/mongodb-27017.sock
+service mongod start
 ```
